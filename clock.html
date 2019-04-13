@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Clock</title>
+  <script src="./jquery-3.4.0.js"></script>
+</head>
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+  }
+
+  .wrap{
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    top:50%;
+    left: 50%;
+    margin-top: -400px;
+    margin-left: -400px;
+  }
+
+  .clock{
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(white 45%, #a6e9ff 68%, white 75%);
+    box-shadow:  10px 10px 5px gray;
+    border-radius: 50%;
+  }
+
+  .hour{
+    position: absolute;
+    left: 390px;
+    top: 300px;
+    width: 20px;
+    height: 110px;
+    background: #75a4b3;
+    border: white 1px solid;
+    border-radius: 20px;
+    box-shadow: #75a4b3 0 0 3px;
+    transform-origin: center 100px;
+  }
+
+  .minute{
+    position: absolute;
+    left: 392px;
+    top: 220px;
+    width: 16px;
+    height: 200px;
+    background: #75a4b3;
+    border: white 1px solid;
+    border-radius: 20px;
+    box-shadow: #75a4b3 0 0 3px;
+    transform-origin: center 180px;
+  }
+
+  .second{
+    position: absolute;
+    left: 395px;
+    top: 40px;
+    width: 10px;
+    height: 390px;
+    background: #75a4b3;
+    border: white 1px solid;
+    border-radius: 20px;
+    box-shadow: #75a4b3 0 0 3px;
+    transform-origin: center 360px;
+  }
+
+  ul{
+    list-style: none;
+  }
+  ul > li {
+    position: absolute;
+    left: 396px;
+    height: 40px;
+    width: 8px;
+    margin-top: 14px;
+    background:linear-gradient(black, lightskyblue );
+    transform-origin: center 386px;
+    transform: rotate(20deg);
+  }
+
+</style>
+<script>
+  window.onload = function () {
+    for( let i = 0; i < 60; i++){
+      $(".clock > ul").append("<li></li>")
+      $("ul li:last-child").css("transform", "rotate(" + 6 * i +"deg)")
+      if( i % 5 === 0){
+        $("ul li:last-child").css({"height": "80px", "width" : "12px", "left" : "394px"})
+      }
+    }
+    move()
+    setInterval(move,1000)
+
+    function move() {
+      var date = new Date()
+      var s = date.getSeconds()
+      var m = date.getMinutes()+ s/60
+      var h = date.getHours() + m/60
+      $(".hour").css("transform", "rotate(" + 30 * h +"deg)")
+      $(".minute").css("transform", "rotate(" + 6 * m +"deg)")
+      $(".second").css("transform", "rotate(" + 6 * s +"deg)")
+    }
+  }
+</script>
+<body>
+<div class="wrap">
+  <div class="clock">
+    <ul></ul>
+    <div class="second"></div>
+    <div class="minute"></div>
+    <div class="hour"></div>
+  </div>
+</div>
+</body>
+</html>
+
