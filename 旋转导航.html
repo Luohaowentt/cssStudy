@@ -4,79 +4,79 @@
   <meta charset="UTF-8">
   <title>页脚旋转导航</title>
   <link rel="stylesheet" href="./iconfont.css">
-</head>
-<style>
-  *{
-    margin: 0;
-    padding: 0;
-  }
-  html，body{
-    height: 100%;
-    overflow: hidden;
-  }
-  .tool{
-    height: 200px;
-    width: 200px;
-    position: absolute;
-    top:20px;
-    left: 20px;
-  }
-  .option > span ,.home > span{
-    display: inline-block;
-    position: absolute;
-    left: 5px;
-    top:5px;
-    height: 60px;
-    width: 60px;
-    text-align:center;
-    line-height: 60px;
-    border-radius: 50%;
-    transform: rotate(0deg);
-    transition: 1s;
-    overflow: hidden;
-    box-shadow:1px 1px 2px black;
-  }
-
-  .option >span:hover ,.home >span:hover{
-    background: #cdd2ed;
-  }
-  .option >span:active ,.home >span:active{
-    box-shadow:inset 0 3px 5px rgba(0,0,0,.125)
-  }
-  .home > span{
-    background: white;
-    transition: 1s;
-    z-index: 2;
-  }
-  .option > span{
-    background: white;
-    transition: 1s;
-  }
-</style>
-<script>
-  window.onload = function () {
-    var home = document.querySelector(".home")
-    var option = document.querySelectorAll(".option > span")
-    var flag = true
-    console.log(option.length)
-    home.onclick = function () {
-      if(flag) {
-        for( let i =0; i < option.length; i++ ){
-          option[i].style.left = (140-45*i) + "px"
-          option[i].style.top = 45*i + "px"
-          option[i].style.transform = "rotate(360deg)"
-        }
-      }else {
-        for( let i =0; i < option.length; i++ ) {
-          option[i].style.left = 5 + "px"
-          option[i].style.top = 5 + "px"
-          option[i].style.transform = "rotate(0deg)"
-        }
-      }
-      flag = !flag
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
     }
-  }
-</script>
+    html，body{
+      height: 100%;
+      overflow: hidden;
+    }
+    .tool{
+      height: 200px;
+      width: 200px;
+      position: absolute;
+      top:20px;
+      left: 20px;
+    }
+    .option > span ,.home > span{
+      display: inline-block;
+      position: absolute;
+      left: 5px;
+      top:5px;
+      height: 60px;
+      width: 60px;
+      text-align:center;
+      line-height: 60px;
+      border-radius: 50%;
+      transform: rotate(0deg);
+      transition: 1s;
+      overflow: hidden;
+      box-shadow:1px 1px 2px black;
+    }
+
+    .option >span:hover ,.home >span:hover{
+      background: #cdd2ed;
+    }
+    .option >span:active ,.home >span:active{
+      box-shadow:inset 0 3px 5px rgba(0,0,0,.125)
+    }
+    .home > span{
+      background: white;
+      transition: 1s;
+      z-index: 2;
+    }
+    .option > span{
+      background: white;
+      transition: 1s;
+    }
+  </style>
+  <script>
+    window.onload = function () {
+      var home = document.querySelector(".home")
+      var option = document.querySelectorAll(".option > span")
+      var flag = true
+      console.log(option.length)
+      home.onclick = function () {
+        if(flag) {
+          for( let i =0; i < option.length; i++ ){
+            option[i].style.left = (140-45*i) + "px"
+            option[i].style.top = 45*i + "px"
+            option[i].style.transform = "rotate(360deg)"
+          }
+        }else {
+          for( let i =0; i < option.length; i++ ) {
+            option[i].style.left = 5 + "px"
+            option[i].style.top = 5 + "px"
+            option[i].style.transform = "rotate(0deg)"
+          }
+        }
+        flag = !flag
+      }
+    }
+  </script>
+</head>
 <body>
 <div class="tool">
   <div class="home">
