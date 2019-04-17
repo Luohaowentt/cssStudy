@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>进入页面</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+
+    html,body{
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #wrap{
+      height: 100%;
+      background: black;
+    }
+
+    #wrap > img {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+      animation: appear 1.5s 0.5s linear forwards;
+    }
+
+    .main{
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      margin: auto;
+      height: 60%;
+      width: 60%;
+      text-align: center;
+      background: rgba(255,255,255,0);
+    }
+
+    .main > img {
+      width: 120px;
+      height: 120px;
+      background: #ff8994;
+      border-radius: 50%;
+      opacity: 0;
+      animation: logoRotate 1s 1s linear forwards;
+    }
+
+    .main > .inner {
+      width: 90%;
+      height: 1px;
+      margin: 30px auto;
+      border-top: white 2px solid;
+      border-bottom: white 2px solid;
+      overflow: hidden;
+      opacity: 0;
+      animation: showWord 1s 2s linear forwards;
+    }
+
+    .main > .inner >span{
+      font-family: 微软雅黑;
+      font-size: 20px;
+      line-height: 30px;
+    }
+
+    @keyframes  appear{
+      from{
+        opacity: 0;
+      }
+      to{
+        opacity: 1;
+      }
+    }
+    @keyframes  logoRotate{
+      from{
+        opacity: 0;
+        transform: rotate(180deg);
+      }
+      to{
+        opacity: 1;
+        transform: rotate(0deg);
+      }
+    }
+    @keyframes  showWord{
+      from{
+        height: 0;
+        opacity: 1;
+      }
+      to{
+        height: 60px;
+        opacity: 1;
+      }
+    }
+
+
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <img src="animationBG.jpg">
+    <div class="main">
+      <img src="logo.jpg">
+      <h3>Chika</h3>
+      <div class="inner">
+        <span>用灿烂星石&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><br>
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;拥涣散心事 </span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
